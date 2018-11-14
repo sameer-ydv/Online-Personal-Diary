@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>User Diary Page</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+* {
+    box-sizing: border-box;
+}
+
+body,html {
+    margin: 0 1px 1px 1px;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+.header {
+    margin: 0;
+    margin-bottom: 5px;
+    background-color: #595959;
+    padding: 10px;
+    text-align: left;
+    font-size: 35px;
+    border-radius: 10px;
+}
+.logo img{
+    display: inline;
+    height: 60px;
+    width: auto;
+}
+/* Create two unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+    height: 530px; /* Should be removed. Only for demonstration */
+}
+
+/* Left and right column */
+.column.side {
+    width: 20%;
+    border-radius: 10px;
+}
+.menu{
+    margin-top: 150px;
+    width: 100%;
+    height: 200px;
+    background-color: #fff;
+    border: 4px solid #808080;
+    border-radius: 15px;
+}
+.menu-item{
+    width: 90%;
+    margin: 15px 0 15px 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 0;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    transition: 0.4s all;
+    text-align: justify;
+    cursor: pointer;
+}
+.menu-item:hover{
+    transition: 0.4s all;
+    background-color: #404040;
+    /*border-left: 4px solid #00ffff;*/
+    border-bottom: 4px solid #00ffff;
+    color: #fff;
+}
+.menu-item a:hover{
+    color: #fff;
+}
+/*.menu-item i{
+    display: inline-block;
+}*/
+.menu-item a{
+    margin-left: 4px;
+    text-decoration: none;
+    font-size: 20px;
+    word-spacing: 5px; 
+    color: #0066ff;
+}
+
+/* Middle column */
+.column.middle {
+    margin-left: 5px;
+    width: 79%;
+    border-radius: 10px;
+    
+    /*filter: grayscale(50%);
+  -webkit-filter: grayscale(50%);*/
+}
+.column.middle ul{
+    /*filter: blur(none);*/
+  /*-webkit-filter: blur(none);*/
+    margin-top: 0;
+    top: -15%;
+    list-style-type: none;
+    padding: 5px;
+    padding-top: 0;
+
+    font-family: 'Roboto Slab', serif;
+    font-size: 25px;
+    background-color: rgba(64, 64, 64,0.8);
+    height: 55px;
+    border-radius: 5px;
+}
+.column.middle ul li{
+    margin-top: 6px;
+    display: inline-block;
+    /*border: 2px solid #009900;
+    /*border-top: : 2px solid #3385ff;
+    border-right: 2px solid #3385ff;*/
+    border-radius: 5px;
+    border-bottom-right-radius: -5px;
+    border-bottom-left-radius: -5px;
+    padding: 5px 10px;
+    transition: 0.4s all;
+}
+.column.middle ul li:hover,.column.middle ul li a:hover{
+    background-color: #0099e6;
+    color: #000;
+    transition: 0.4s all;
+    cursor: pointer;
+    /*border-left: 4px solid #fff;
+    border-right: 4px solid #fff;*/
+}
+.column.middle ul li:hover{
+    border-left: 4px solid #fff;
+    border-right: 4px solid #fff;   
+}
+.column.middle ul li a{
+    text-decoration: none;
+    font-family: 'Roboto Slab', serif;
+    font-weight: thin;
+    font-size: 25px;
+    color: #fff;
+}
+.column.middle ul li.active{
+    background-color: #0099e6;
+    border-left: 4px solid #fff;
+}
+.container{
+    margin: 30px;
+    margin-left: 160px;
+    margin-bottom: 0;
+    background-color: rgba(255, 255, 255,1.0);
+    /*border:5px solid #000;*/
+    border-radius: 10px;
+    width: 70%;
+    height: 400px
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the footer */
+/*.footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+}
+*/
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .column.side, .column.middle {
+        width: 100%;
+    }
+}
+</style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700" rel="stylesheet">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+</head>
+    
+    
+<body>
+
+
+<div class="header">
+  <div class="logo">
+       <img src="logo.png">
+    </div>
+</div>
+
+<div class="row">
+  <div class="column side" style="background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);">
+    <div class="menu">
+        <div class="menu-item">
+            <a href="diarypage.html">  <i class="fas fa-desktop"></i> Dashboard</a>
+        </div> 
+        <div class="menu-item">
+            <a href="home.html">  <i class="fas fa-home"></i> Home</a>
+        </div>
+        <div class="menu-item">
+            <a href="home.html" onclick="alert('You have been locked out')">  <i class="fas fa-power-off"></i> Logout
+        </div>
+    </div>
+  </div>
+  <div class="column middle" style="background-image: url('logo_background.jpg');">
+    <ul>
+      <li class="active"><a href="#" class=>TASKS</a></li>
+      <li><a href="#">CONTACTS</a></li>
+    </ul>
+    <div class="container">
+        <form ></form>
+
+
+
+    </div>
+  </div>
+  
+</div>
+
+<!-- <div class="footer">
+  <p>Footer</p>
+</div>
+ -->
+</body>
+</html>
