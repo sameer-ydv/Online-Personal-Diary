@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>User Diary Page</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+* {
+    box-sizing: border-box;
+}
+
+body,html {
+    margin: 0 1px 1px 1px;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+.header {
+    margin: 0;
+    margin-bottom: 5px;
+    background-color: #737373;
+    padding: 10px;
+    text-align: left;
+    font-size: 35px;
+    border-radius: 10px;
+}
+.logo img{
+    display: inline;
+    height: 60px;
+    width: auto;
+}
+/* Create two unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+    height: 530px; /* Should be removed. Only for demonstration */
+}
+
+/* Left and right column */
+.column.side {
+    width: 20%;
+    border-radius: 10px;
+}
+.menu{
+    margin-top: 150px;
+    width: 100%;
+    height: 200px;
+    background-color: #fff;
+    border: 4px solid #808080;
+    border-radius: 15px;
+}
+.menu-item{
+    width: 90%;
+    margin: 15px 0 15px 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 0;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    transition: 0.4s all;
+    text-align: justify;
+    cursor: pointer;
+}
+.menu-item:hover{
+    transition: 0.4s all;
+    background-color: #404040;
+    /*border-left: 4px solid #00ffff;*/
+    border-bottom: 4px solid #00ffff;
+    color: #fff;
+}
+.menu-item a:hover{
+    color: #fff;
+}
+/*.menu-item i{
+    display: inline-block;
+}*/
+.menu-item a{
+    margin-left: 4px;
+    text-decoration: none;
+    font-size: 20px;
+    word-spacing: 5px; 
+    color: #0066ff;
+}
+
+/* Middle column */
+.column.middle {
+    margin-left: 5px;
+    width: 79%;
+    border-radius: 10px;
+    
+    /*filter: grayscale(50%);
+  -webkit-filter: grayscale(50%);*/
+}
+.column.middle ul{
+    /*filter: blur(none);*/
+  /*-webkit-filter: blur(none);*/
+    margin-top: 0;
+    top: -15%;
+    list-style-type: none;
+    padding: 5px;
+    padding-top: 0;
+
+    font-family: 'Roboto Slab', serif;
+    font-size: 25px;
+    background-color: rgba(64, 64, 64,0.8);
+    height: 55px;
+    border-radius: 5px;
+}
+.column.middle ul li{
+    margin-top: 6px;
+    display: inline-block;
+    /*border: 2px solid #009900;
+    /*border-top: : 2px solid #3385ff;
+    border-right: 2px solid #3385ff;*/
+    border-radius: 5px;
+    border-bottom-right-radius: -5px;
+    border-bottom-left-radius: -5px;
+    padding: 5px 10px;
+    transition: 0.4s all;
+}
+.column.middle ul li:hover,.column.middle ul li a:hover{
+    background-color: #0099e6;
+    color: #000;
+    transition: 0.4s all;
+    cursor: pointer;
+    /*border-left: 4px solid #fff;
+    border-right: 4px solid #fff;*/
+}
+.column.middle ul li:hover{
+    border-left: 4px solid #fff;
+      
+}
+.column.middle ul li a{
+    text-decoration: none;
+    font-family: 'Roboto Slab', serif;
+    font-weight: thin;
+    font-size: 25px;
+    color: #fff;
+}
+.column.middle ul li.active{
+    background-color: #0099e6;
+    border-left: 4px solid #fff;
+}
+.container{
+    margin: 30px;
+    margin-left: 160px;
+    margin-bottom: 0;
+    background-color: rgba(242, 242, 242,0.9);
+    
+    border-radius: 10px;
+    width: 70%;
+    height: 400px
+}
+.task-form{
+    margin: 20px;
+    
+    /*border: 1px solid #000;*/
+}
+/*.indi-style{
+    margin-bottom: 15px;
+}*/
+label {
+    margin-top: 10px;
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    font-weight: 200;
+}
+input[type=text],input[type=tel], input[type=checkbox] {
+    margin-top: 20px;
+    width: 50%;
+    padding: 14px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    resize: vertical;
+}
+input[type=text]:focus ,input[type=date]:focus {
+    background-color: #e6e6e6;
+}
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 16px;
+    margin: 8px 15px 8px 15px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.8;
+    float: right;
+}
+.cancelbtn {
+    margin-right: 20px;
+    margin-left: 50px;
+    padding: 10px 16px;
+    background-color: #f44336;
+}
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 40%;
+}
+button:hover {
+    opacity:1;
+}
+
+.row2:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the footer */
+/*.footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+}
+*/
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .column.side, .column.middle {
+        width: 100%;
+    }
+}
+</style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700" rel="stylesheet">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+</head>
+    
+    
+<body>
+
+
+<div class="header">
+  <div class="logo">
+       <img src="logo.png">
+    </div>
+</div>
+
+<div class="row">
+  <div class="column side" style="background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);">
+    <div class="menu">
+        <div class="menu-item">
+            <a href="diarypage.html">  <i class="fas fa-desktop"></i> Dashboard</a>
+        </div> 
+        <div class="menu-item">
+            <a href="home.html">  <i class="fas fa-home"></i> Home</a>
+        </div>
+        <div class="menu-item">
+            <a href="home.html" onclick="alert('You have been locked out')">  <i class="fas fa-power-off"></i> Logout
+        </div>
+    </div>
+  </div>
+  <div class="column middle" style="background-image: url('bkg.jpg');">
+    <ul>
+      <li ><a href="diarypage_tasks.html" class=>TASKS</a></li>
+      <li class="active"><a href="#">CONTACTS</a></li>
+    </ul>
+    <div class="container">
+        <form class="task-form">
+            <div class="row2">
+                <div class="col-25">
+                    <label for="name">Name :</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="task" placeholder="Contact Name" value="">
+                </div>
+            </div>
+            <div class="row2">
+                <div class="col-25">
+                    <label for="mobile">Mobile :</label>
+                </div>
+                <div class="col-75">
+                    <input type="tel" name="place" placeholder="+91" value="">
+                </div>
+            </div>
+            <div class="row2">
+                <div class="col-25">
+                    <label for="address">Address :</label>
+                </div>
+                <div class="col-75">
+                    <textarea name="message" style="width:75%; height:150px;padding: 10px 12px;border: 1px solid #ccc;
+                    border-radius: 4px;,margin-top: 10px;font-size: 20px;"></textarea>
+                </div>
+            </div>
+            <div class="row2">
+                <!-- <div class="col-25">
+                    <label style="font-size: 20px;color: #0099ff"><input type="checkbox" name="remember">   Remind Me</label>
+                </div> -->
+                <div class="col-75">
+                    <button type="reset" class="cancelbtn">Reset</button>
+                    <button type="submit" class="signupbtn">Save and continue</button>
+                </div>
+            </div>
+        </form>
+    </div>
+  
+  
+</div>
+
+<!-- <div class="footer">
+  <p>Footer</p>
+</div>
+ -->
+</body>
+</html>
